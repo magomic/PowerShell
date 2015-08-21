@@ -65,3 +65,24 @@ function mik($file)
 		saps $fpdf
 	# </Prozess>
  }
+
+ function Get-OutlookInbox
+ {
+	 Add-type -assembly "Microsoft.Office.Interop.Outlook" | out-null	 
+	 $olFolders = "Microsoft.Office.Interop.Outlook.olDefaultFolders" -as [type] 
+	 $outlook = new-object -comobject outlook.application
+	 $namespace = $outlook.GetNameSpace("MAPI")
+	 $folder = $namespace.getDefaultFolder($olFolders::olFolderInBox)
+	 $folder.items | Select-Object -Property SenderName, Subject, ReceivedTime, Importance
+
+ }
+ 
+  function uptime
+ {
+ 	# shows time when machine was started
+	 Get-WmiObject win32_operatingsystem | select csname, @{LABEL='LastBootUpTime';EXPRESSION={$_.ConverttoDateTime($_.lastbootuptime)}}
+ }
+ 
+ 
+ 
+ 
