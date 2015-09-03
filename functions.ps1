@@ -39,6 +39,15 @@ function mik($file)
 		$fgls = [string]::concat($file,'.gls')
 	# </Commandstrings>
 
+	#<Versionsnummer lesen>
+		[Double]$v = get-content version.dat # Datei version.dat ist vorhanden mit Inhalt, z.B. 1.0000
+		#$v = $v.split(";")
+		# $v[1] = buldnummer; $v[0] = hauptversion
+		$v += 0.001 # da 5x kompiliert wird
+	# <Versionsnummer schreiben>
+		([string]$v).replace(",",".") | out-file version.dat -Encoding ASCII # komischerweise macht out-file aus einem . ein , bei einer double-variable wenn man sie in eine datei schreibt
+	#</Versionsnummer>
+
 	# <Kompilieren>
 		write-host "######### PDFLATEX #############"
 		BIN:\pdflatex.exe $ftex
