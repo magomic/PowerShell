@@ -104,6 +104,23 @@ gci HKLM:\Software\Classes -ea 0| ? {$_.PSChildName -match '^\w+\.\w+$' -and (gp
 #| ft PSChildName
 } #}</aller Com Objekte>
 
+
+# ERSTELLEN EINES GIT REPOSITORIES
+#  a) wenn lokale dateien zu einem existierenden repository (online) übertragen werden sollen
+#	1. in das Verzeichnis wechseln (der zu uebertragenden Dateien)
+#	2. git init
+#	3. git add *
+#	4. git commit -m "Init"
+#	5. git remote add origin https://github.com/magomic/rep_name_online.git
+#	6. git fetch
+#	7. git pull https://github.com/magomic/LaTeX.git
+#	8. git push -origin master
+#  b) wenn online repository synchronisiert werden soll
+#  	1. ...
+# }</FUNKTIONEN>
+
+
+
 # Kurzzugriffe fÃ¼r wichtige Pfade{ --------------------------------
 # <TeX-Pfade>{
 #$texfom = "D:\DropBoxen\Dropbox\FOM\LaTeX_FOMstd_original"
