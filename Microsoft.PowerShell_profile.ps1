@@ -109,6 +109,7 @@ mount -Name WISSEN -PSProvider filesystem -root 'F:\Literatur und eigene Arbeite
 # <ALIASE>{ ----------------------------------------------------
 set-alias -name np -value notepad.exe
 set-alias -name np++ -value PROGS:\notepad++\notepad++.exe
+set-alias -name vim -value PROGS:\Vim\Vim74\vim.exe
 # }</ALIASE>
 
 # <Ausgabe aller definierten Funktionen>{
