@@ -88,7 +88,8 @@ function fomskripttex{ sl FOM:\skript*\Zusamm*\;start Hauptdatei.tcp } #}</>
 function texhere 
 { 
 	
-		echo LaTeX-Vorlage wird erstellt: $texori.ToString() nach ([string]::Concat($pwd.ToString(),"\conclusion"))
+	# Pruefen, ob Original-Dateien vorhanden sind (Fehlerpruefung)		
+echo LaTeX-Vorlage wird erstellt: $texori.ToString() nach ([string]::Concat($pwd.ToString(),"\conclusion"))
 		copy  $texori.ToString() -Destination ([string]::Concat($pwd.ToString(),"\conclusion")) -Recurse
 		
 } #}</leere Vorlage>
