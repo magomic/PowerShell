@@ -52,6 +52,7 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 #} </Historie>
 
 # FUNKTIONEN -----------------------------------------------
+# ToDo: History über Repository synchronisieren
 # letzten Schlagzeilen von spon auflisten{
 function Get-spon 
 {
