@@ -11,6 +11,7 @@
 
 # <Module und PS-Zusätze>{
 # Diese Installation muss nur einmal ausfgeführt werden, sollte ctrl+v/c/x nicht funktionieren, dll in Modules\PSReadLine entfernen und folgende Installation erneut ausführen
+# ToDo: prüfen ob module geladen, wenn nein, dann laden evtl. Installation ausführen
 #(new-object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
 #Install-Module PsGet
 #Import-Module PsGet
