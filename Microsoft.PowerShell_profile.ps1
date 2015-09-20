@@ -1,4 +1,5 @@
 # 1. Versuch die Historie über die ps sessions hinweg zu persistieren, weniger erfolgreich, historie war zwar geladen (get-history) aber über F7 oder den Pfeiltasten nicht verfügbar
+# Verwendung von Git
 $MaximumHistoryCount = 100
 
 $Shell = $Host.UI.RawUI
