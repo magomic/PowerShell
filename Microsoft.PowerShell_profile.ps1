@@ -125,5 +125,10 @@ get-psdrive | where {$_.Name.Length -gt 2 } | select {$_.Name} | Format-Wide -Au
 sl C:\
 
 # Load posh-git example profile
-. 'C:\Users\Erhan\posh-git\profile.example.ps1'
+# . 'C:\Users\Erhan\posh-git\profile.example.ps1'
+. (Resolve-Path "$env:LOCALAPPDATA\GitHub\shell.ps1")
+. $env:github_posh_git\profile.example.ps1
+
+
+
 
