@@ -9,6 +9,18 @@
 # weiter Informationen https://rogerdudler.github.io/git-guide/index.de.html
 # </Verwendung von Github>
 
+# <Module und PS-Zusätze>{
+# Diese Installation muss nur einmal ausfgeführt werden, sollte ctrl+v/c/x nicht funktionieren, dll in Modules\PSReadLine entfernen und folgende Installation erneut ausführen
+#(new-object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
+#Install-Module PsGet
+#Import-Module PsGet
+#Install-Module PsUrl
+#Import-Module PsUrl
+#Install-Module PSReadLine
+#evtl Import-Module PSReadLine, sollte aber auch ohne funktionieren
+# }</Module und PS-Zusätze>
+
+
 # 1. Versuch die <Historie>{ Ã¼ber die ps sessions hinweg zu persistieren, weniger erfolgreich, historie war zwar geladen (get-history) aber Ã¼ber F7 oder den Pfeiltasten nicht verfÃ¼gbar
 $MaximumHistoryCount = 100
 $Shell = $Host.UI.RawUI
