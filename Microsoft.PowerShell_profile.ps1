@@ -54,6 +54,16 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 # FUNKTIONEN -----------------------------------------------
 # ToDo: History über Repository synchronisieren
 # letzten Schlagzeilen von spon auflisten{
+function Show-Colors() 
+{
+  $colors = [Enum]::GetValues( [ConsoleColor] )
+  $max = ($colors | foreach { "$_ ".Length } | Measure-Object -Maximum).Maximum
+  foreach( $color in $colors ) {
+    Write-Host (" {0,2} {1,$max} " -f [int]$color,$color) -NoNewline
+    Write-Host "$color" -Foreground $color
+  }
+}
+
 function Get-spon 
 {
 	echo SpOn-Schlagzeilen
@@ -95,8 +105,8 @@ echo LaTeX-Vorlage wird erstellt: $texori.ToString() nach ([string]::Concat($pwd
 		
 } #}</leere Vorlage>
 # <BuchWissen> Tex-Datei Ã–ffnen{
-function buch{ sl BUCH:\ ; saps Hauptdatei.tcp  }
-function wissen{sl WISSEN:; saps Hauptdatei.tcp }
+function buch{ push-location; sl BUCH:\ ; saps Hauptdatei.tcp; pop-location  }
+function wissen{push-location; sl WISSEN:; saps Hauptdatei.tcp; pop-location }
 #}</BuchWissen>
 
 # Auflisten <aller Com Objekte> fuer New-Object {
@@ -136,6 +146,7 @@ mount -Name CLOUD -PSProvider filesystem -root 'D:\DropBoxen\'
 mount -Name TBOX -PSProvider filesystem -root 'D:\DropBoxen\Mediencenter\'
 New-PSDrive -Name BUCH -PSProvider filesystem -Root TBOX:\buch\Erfahrungen_in_Deutschland\
 mount -Name WISSEN -PSProvider filesystem -root 'F:\Literatur und eigene Arbeiten\Wissenssammlung\'
+New-PSDrive -Name DEV -PSProvider FileSystem -Root F:\Develop\
 # }
 
 # <ALIASE>{ ----------------------------------------------------
